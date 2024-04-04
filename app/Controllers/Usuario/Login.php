@@ -23,7 +23,10 @@
         public function index(){
             return $this->crear_vista($this->view, $this->cargar_datos());
         }//end index
-
+        
+    public function existe_usuario(){
+      dd("Validando credenciales...")  
+    }
 
 
     }//end Login
