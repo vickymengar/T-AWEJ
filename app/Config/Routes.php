@@ -38,7 +38,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 //Login
 $routes->get('acceso_admin', 'Usuario/Login::index', ['as' => 'acceso_admin']);
-$routes->post('validar_usuario','Usuario/Login::funcion', ['as' => 'validar_usuario']);
+$routes->post('validar_usuario','Usuario/Login::existe_usuario', ['as' => 'validar_usuario']);
 //Dashboard
 $routes->get('administracion_dashboard', 'Panel/Dashboard::index',['as'=>'administracion_dashboard']);
 
