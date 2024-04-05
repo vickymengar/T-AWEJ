@@ -38,6 +38,11 @@
         //Query
         $usuario = $tabla_usuario->iniciar_sesion($email, hash("hash256", $password));
 
+        if ($usuario->estatus_usuario == ) {
+            
+        }
+        
+
         dd($usuario);
 
         
