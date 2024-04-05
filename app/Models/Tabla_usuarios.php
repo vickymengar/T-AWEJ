@@ -53,7 +53,21 @@
                 return FALSE;
             }
         }//update_data
-        
+
+        //Specific Queries
+        public function iniciar_sesion($email = "", $password = ""){
+            if ($email != NULL && $password != NULL ) { 
+              return $this
+                ->table($this->table)
+                  ->select()
+                  
+                  ;
+            }//end
+            else{
+             return FALSE;   
+            }//end else
+            
+        }
     } //end Tabla_usuarios
 
     
