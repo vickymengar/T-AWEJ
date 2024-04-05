@@ -34,3 +34,12 @@ CREATE TABLE usuarios (
 INSERT INTO usuarios (nombre_usuario, ap_usuario, am_usuario, sexo_usuario, email_usuario, password_usuario, imagen_usuario,id_rol) VALUES
     ('Administrador', 'Administrador','',0, 'admin@baseci4.com', SHA2('admin123',0), NULL, 745),
     ('Operador', 'Operador','',0, 'operador@baseci4.com', SHA2('operador123',0), NULL, 125);
+
+
+SELECT 
+usuarios.*,
+roles.*
+FROM 
+usuarios
+INNER JOIN roles ON usuarios.id_rol = roles.id_rol
+WHERE email_usuario = "admin@baseci4.com" AND password_usuario = SHA2("admin123",0);
