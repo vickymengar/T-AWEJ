@@ -25,8 +25,11 @@
         }//end index
         
     public function existe_usuario(){
-      dd("Validando credenciales...")  
-    }
+      dd("Validando credenciales..."); 
+
+        $email = $this->request->getPost("");
+        $password = $this->request->getPost("");
+    }//existe_usuario
 
 
     }//end Login
