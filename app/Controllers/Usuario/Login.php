@@ -29,9 +29,16 @@
 
         $email = $this->request->getPost("correo_electronico");
         $password = $this->request->getPost("password");
-
-        d($email);
+         d($email);
         dd($password);
+
+        //Instancia del Modelo
+        $tabla_usuario = new \App\Models\Tabla_usuarios;
+        
+        //Query
+        $usuario = $tabla_usuario->iniciar_sesion($email, hash("hash256", $password));
+
+        dd($usuario);
 
         
     }//existe_usuario
