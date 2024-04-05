@@ -27,7 +27,7 @@
     public function existe_usuario(){
       dd("Validando credenciales..."); 
 
-        $email = $this->request->getPost("");
+        $email = $this->request->getPost("correo_electronico");
         $password = $this->request->getPost("");
     }//existe_usuario
 
