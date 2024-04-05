@@ -28,7 +28,12 @@
       dd("Validando credenciales..."); 
 
         $email = $this->request->getPost("correo_electronico");
-        $password = $this->request->getPost("");
+        $password = $this->request->getPost("password");
+
+        d($email);
+        dd($password);
+
+        
     }//existe_usuario
 
 
