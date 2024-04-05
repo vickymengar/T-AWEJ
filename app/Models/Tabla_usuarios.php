@@ -64,12 +64,13 @@
                   usuarios.ap_usuario, usuarios.am_usuario, usuarios.sexo_usuario,
                   usuarios.email_usuario, usuarios.password_usuario,
                   usuarios.imagen_usuario, roles.id_rol, roles.rol")
-                  -> 
-                  
-                  ;
+                  ->join("roles","usuarios.id_rol = roles.id_rol")
+                  ->where("usuarios.email_usuario", $email)
+                  ->where("usuarios.password_usuario", $password)
+                  ->first();
             }//end
             else{
-             return FALSE;   
+             return array();   
             }//end else
             
         }
