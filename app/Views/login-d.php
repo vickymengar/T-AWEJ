@@ -41,6 +41,18 @@
 		      			<input type="text" class="form-control" placeholder="Username" required>
 		      		</div>
 	            <div class="form-group">
+			    <?php 
+                        $attibutes = [
+				"type" => "password",
+			       "class" => "form-control",
+			       "value" => "",
+			       "placeholder" => "",
+				"id" => "password-field",
+			       "name" => "password",
+			       "required" => true
+			];
+                     echo form_input($attibutes);
+                       ?>
 			    
 			    
 	              <input id="password-field" type="password" class="form-control" placeholder="Password" required>
