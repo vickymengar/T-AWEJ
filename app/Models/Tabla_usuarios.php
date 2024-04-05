@@ -59,7 +59,12 @@
             if ($email != NULL && $password != NULL ) { 
               return $this
                 ->table($this->table)
-                  ->select()
+                  ->select("
+                  usuarios.id_usuario, estatus_usuario, usuarios.id_usuario, usuarios.nombre_usuario,
+                  usuarios.ap_usuario, usuarios.am_usuario, usuarios.sexo_usuario,
+                  usuarios.email_usuario, usuarios.password_usuario,
+                  usuarios.imagen_usuario, roles.id_rol, roles.rol")
+                  -> 
                   
                   ;
             }//end
