@@ -87,6 +87,12 @@ define("RECURSOS_LOGIN_IMAGES","recursos_login/images/");
 define("RECURSOS_PANEL_PLUGINS","recursos_panel/plugins/");
 define("RECURSOS_PANEL_DIST","recursos_panel/dist/");
 
-///
+///ESTATUS USUARIO
 define('ESTATUS_HABILITADO', 1);
 define('ESTATUS_DESHABILITADO', -1);
+
+//CONSTANTES ALERTAS
+define('TOASTR_SUCCESS', 50);
+define('TOASTR_WARNING', 100);
+define('TOASTR_ERROR', 150);
+define('TOASTR_INFO', 0);
