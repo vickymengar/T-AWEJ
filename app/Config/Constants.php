@@ -86,3 +86,7 @@ define("RECURSOS_LOGIN_IMAGES","recursos_login/images/");
 
 define("RECURSOS_PANEL_PLUGINS","recursos_panel/plugins/");
 define("RECURSOS_PANEL_DIST","recursos_panel/dist/");
+
+///
+define('ESTATUS_HABILITADO', 1);
+define('ESTATUS_DESHABILITADO', -1);
