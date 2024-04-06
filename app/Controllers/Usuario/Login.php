@@ -24,25 +24,22 @@
             return $this->crear_vista($this->view, $this->cargar_datos());
         }//end index
         
-    public function existe_usuario(){
-      dd("Validando credenciales..."); 
+    public function existe_usuario(){ 
 
         $email = $this->request->getPost("correo_electronico");
         $password = $this->request->getPost("password");
-         d($email);
-        dd($password);
 
         //Instancia del Modelo
         $tabla_usuario = new \App\Models\Tabla_usuarios;
         
         //Query
         $usuario = $tabla_usuario->iniciar_sesion($email, hash("hash256", $password));
-          d($usuario);
+       
 
         if(!empty($usuario)){
                   if ($usuario->estatus_usuario == ESTATUS_DESHABILITADO) {
             crear_mensaje("Este usuario ha sido deshabilitado. Comunicate con el administrador", "Error", TOASTR_ERROR);
-            return redirect()->route_to("administracion_acceso");    
+            return redirect()->to(route_to("administracion_acceso"));    
         }
         //Variables de sesion
         $session = session();
@@ -56,21 +53,19 @@
         $session->set("rol_actual", $usuario->id_rol);
         $session->set("tarea_actual", TAREA_DASHBOARD);
 
-            dd($session);
 
-
-         crear_mensaje("Hola de nuevo".$session->nombre_usuario."al panel de administracion", "¡Bienvenido!","TOASTR_INFO);
-         return redirect()->route_to("administracion_dashbord");
+        crear_mensaje("Hola de nuevo".$session->nombre_usuario."al panel de administracion", "¡Bienvenido!","TOASTR_INFO);
+         return redirect()->to(route_to("administracion_dashbord"));
   
         } // end if
         else{
            crear_mensaje("El usuario y/o contraseña son incorrectas", "Error", TOASTR_ERROR);
-            return redirect()->route_to("administracion_acceso"); 
+            return redirect()->to(route_to("administracion_acceso")); 
         } //end else
 
         if ($usuario->estatus_usuario == ESTATUS_DESHABILITADO) {
             crear_mensaje("Este usuario ha sido deshabilitado. Comunicate con el administrador", "Error", TOASTR_ERROR);
-            return redirect()->route_to("administracion_acceso");    
+              return redirect()->to(route_to("administracion_acceso")); 
         }
         //Variables de sesion
         $session = session();
@@ -86,7 +81,7 @@
 
 
          crear_mensaje("Hola de nuevo".$session->nombre_usuario."al panel de administracion", "¡Bienvenido!","TOASTR_INFO);
-         return redirect()->route_to("administracion_acceso");    
+         return redirect()->to(route_to("administracion_acceso"));    
 
 
                 
