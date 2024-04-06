@@ -39,7 +39,8 @@
         $usuario = $tabla_usuario->iniciar_sesion($email, hash("hash256", $password));
 
         if ($usuario->estatus_usuario == ESTATUS_DESHABILITADO) {
-            mensaje
+            crear_mensaje("Este usuario ha sido deshabilitado. Comunicate con el administrador", "Error", 125);
+            
             
         }
         
