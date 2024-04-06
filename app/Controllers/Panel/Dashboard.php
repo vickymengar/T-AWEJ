@@ -47,7 +47,7 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        mensaje("Está es una prueba jsjs", "Mensaje", 3);
+        crear_mensaje("Prueba de instancia del mensaje", "Toastr", 125);
         return $this->crear_vista($this->view, $this->cargar_datos());
     }
 }
