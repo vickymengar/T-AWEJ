@@ -38,7 +38,8 @@
         //Query
         $usuario = $tabla_usuario->iniciar_sesion($email, hash("hash256", $password));
 
-        if ($usuario->estatus_usuario == ) {
+        if ($usuario->estatus_usuario == ESTATUS_DESHABILITADO) {
+            mensaje
             
         }
         
