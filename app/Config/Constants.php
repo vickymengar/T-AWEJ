@@ -96,3 +96,8 @@ define('TOASTR_SUCCESS', 50);
 define('TOASTR_WARNING', 100);
 define('TOASTR_ERROR', 150);
 define('TOASTR_INFO', 0);
+
+//ADMINISTRABLES: TAREA
+define('TAREA_DASHBOARD', "tarea_dashboard");
+
+//PUBLICA : PAGINAS
