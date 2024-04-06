@@ -39,6 +39,35 @@
         $usuario = $tabla_usuario->iniciar_sesion($email, hash("hash256", $password));
           d($usuario);
 
+        if(!empty($usuario)){
+                  if ($usuario->estatus_usuario == ESTATUS_DESHABILITADO) {
+            crear_mensaje("Este usuario ha sido deshabilitado. Comunicate con el administrador", "Error", TOASTR_ERROR);
+            return redirect()->route_to("administracion_acceso");    
+        }
+        //Variables de sesion
+        $session = session();
+        $session->set("sesion_iniciada", TRUE);
+        $session->set("id_usuario", $usuario->id_usuario);
+        $session->set("nombre_usuario", $usuario->nombre_usuario);
+        $session->set("nombre_completo", $usuario->nombre_usuario." ".$usuario->ap_usuario." ".$usuario->am_usuario);
+        $session->set("sexo_usuario", $usuario->sexo_usuario);
+        $session->set("email_usuario", $usuario->email_usuario);
+        $session->set("imagen_usuario", $usuario->imagen_usuario);
+        $session->set("rol_actual", $usuario->id_rol);
+        $session->set("tarea_actual", TAREA_DASHBOARD);
+
+            dd($session);
+
+
+         crear_mensaje("Hola de nuevo".$session->nombre_usuario."al panel de administracion", "¡Bienvenido!","TOASTR_INFO);
+         return redirect()->route_to("administracion_dashbord");
+  
+        } // end if
+        else{
+           crear_mensaje("El usuario y/o contraseña son incorrectas", "Error", TOASTR_ERROR);
+            return redirect()->route_to("administracion_acceso"); 
+        } //end else
+
         if ($usuario->estatus_usuario == ESTATUS_DESHABILITADO) {
             crear_mensaje("Este usuario ha sido deshabilitado. Comunicate con el administrador", "Error", TOASTR_ERROR);
             return redirect()->route_to("administracion_acceso");    
@@ -54,9 +83,13 @@
         $session->set("imagen_usuario", $usuario->imagen_usuario);
         $session->set("rol_actual", $usuario->id_rol);
         $session->set("tarea_actual", TAREA_DASHBOARD);
-     
 
-        
+
+         crear_mensaje("Hola de nuevo".$session->nombre_usuario."al panel de administracion", "¡Bienvenido!","TOASTR_INFO);
+         return redirect()->route_to("administracion_acceso");    
+
+
+                
     }//existe_usuario
 
 
