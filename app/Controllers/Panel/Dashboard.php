@@ -37,6 +37,7 @@ class Dashboard extends BaseController
         $datos["imagen_usuario"] =($this->session->imagen_usuario == NULL)
 
              ? ($this->session->sexo_usuario != MASCULINO) ? '' : '')
+             : $this->session->imagen_usuario; 
                  
         
         
