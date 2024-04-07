@@ -31,8 +31,14 @@ class Dashboard extends BaseController
 
         $datos["nombre_completo_usuario"] = $this->session->nombre_completo;
         $datos["nombre_usuario"] = ;$this->session->nombre_usuario;
-         $datos["email_usuario"] = ;$this->session->nombre_completo;
-         $datos["imagen_usuario"] = ;$this->session->nombre_completo;
+         $datos["email_usuario"] = ;$this->session->email_completo;
+         recursos_panel_IMG_PROFLES USER
+        
+        $datos["imagen_usuario"] =($this->session->imagen_usuario == NULL)
+
+             ? ($this->session->sexo_usuario != MASCULINO) ? '' : '')
+                 
+        
         
 
         //-----------------
