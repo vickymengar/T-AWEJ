@@ -39,8 +39,11 @@ $routes->get('/', 'Home::index');
 //Login
 $routes->get('acceso_admin', 'Usuario/Login::index', ['as' => 'acceso_admin']);
 $routes->post('validar_usuario','Usuario/Login::existe_usuario', ['as' => 'validar_usuario']);
+$routes->get('salir administracion_acceso', 'Usuario/Logout::index', ['as' => 'salir administracion_acceso']);
+
 //Dashboard
 $routes->get('administracion_dashboard', 'Panel/Dashboard::index',['as'=>'administracion_dashboard']);
+
 
 /*
  * --------------------------------------------------------------------
