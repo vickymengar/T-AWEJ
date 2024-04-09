@@ -17,7 +17,10 @@ class Dashboard extends BaseController
         
         // Instancia del permisos helper
         helper("permisos_roles_helper");
-        
+        if(!acceso_usuario(TAREA_DASHBOARD, $this->session->rol_actual)){
+            $this->permiso = FALSE;
+        }// end
+       $this->session->tarea_actual = TAREA_DASHBOARD; 
     }//end__construct
 
     private function cargar_datos()
@@ -74,8 +77,13 @@ class Dashboard extends BaseController
         return view($nombre_vista, $contenido);
     }
 
-    public function index()
-    {
-        return $this->crear_vista($this->view, $this->cargar_datos());
-    }
-}
+    public function index(){
+        if ($this->permiso) {
+        return $this->crear_vista($this->view, $this->cargar_datos());    
+        }//end if
+        else {
+            crear_mensaje("No tienes permisos para acceder a este modulo, contacte al Administrador", "Oppss!", TOASTR_WARNIGN);
+            return redirect()->to(route_to("administracion_acceso"));
+        }//
+    }// end index
+}end home
