@@ -44,6 +44,8 @@ $routes->get('salir administracion_acceso', 'Usuario/Logout::index', ['as' => 's
 //Dashboard
 $routes->get('administracion_dashboard', 'Panel/Dashboard::index',['as'=>'administracion_dashboard']);
 
+//Dashboard
+$routes->get('administracion_usuarios', 'Panel/Usuarios::index',['as'=>'administracion_usuarios']);
 
 /*
  * --------------------------------------------------------------------
