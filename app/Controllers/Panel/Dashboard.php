@@ -73,7 +73,7 @@ class Dashboard extends BaseController
 
     private function crear_vista($nombre_vista = '', $contenido = array())
     {
-        $contenido["menu_lateral"]=crear_menu_panel();
+        $contenido["menu_lateral"]=crear_menu_panel( $this->session->tarea_actual);
         return view($nombre_vista, $contenido);
     }
 
