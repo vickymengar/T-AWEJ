@@ -9,10 +9,14 @@ class Dashboard extends BaseController
     private $view = 'panel/dashboard';
     private $session = NULL;
     private $permiso = TRUE;
+    
 
     public function __construct(){
         //Instancia de la variable sesion
         $this->session = session();
+        
+        // Instancia del permisos helper
+        helper("permisos_roles_helper");
         
     }//end__construct
 
