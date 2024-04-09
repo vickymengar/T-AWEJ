@@ -1,10 +1,10 @@
 <?php
 
-    function configurar_menu_panel($tarea_actual = ''){
+    function configurar_menu_panel($tarea_actual = '', $rol_actual = 0){
         //Almacenar opciones dentro del menú
         $menu = array();
         
-        //Permitir identificar las caracterísitcas de la opción
+        //Permitir identificar las características de la opción
         $menu_opcion = array();
 
         //Permitir identificar las caracterísitcas de la subopción
@@ -18,6 +18,17 @@
         $menu_opcion['icon'] = 'fa fa-area-chart';
             $menu_opcion['submenu '] = array();
         $menu['dashboard'] = $menu_opcion;
+
+        if ($rol_actual == ROL_ADMINISTRADOR ["clave"]) {
+        //Tarea Usuarios
+        $menu_opcion = array();
+        $menu_opcion['is_active'] = ($tarea_actual == TAREA_USUARIOS) ? TRUE : FALSE ;
+        $menu_opcion['href'] = route_to("administracion_usuarios");
+        $menu_opcion['text'] = 'Usuarios';
+        $menu_opcion['icon'] = 'fa fa-area-chart';
+            $menu_opcion['submenu '] = array();
+        $menu['usuarios'] = $menu_opcion;  
+             }//
 
         //Ejemplo con opciones
         $menu_opcion = array();
