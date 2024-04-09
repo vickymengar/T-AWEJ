@@ -1,6 +1,6 @@
 <?php
 
-    function configurar_menu_panel(){
+    function configurar_menu_panel($tarea_actual = ''){
         //Almacenar opciones dentro del menú
         $menu = array();
         
@@ -12,7 +12,7 @@
 
         //Tarea Dashboard
         $menu_opcion = array();
-        $menu_opcion['is_active'] = FALSE;
+        $menu_opcion['is_active'] = ($tarea_actual == TAREA_DASHBOARD) ? TRUE : FALSE ;
         $menu_opcion['href'] = route_to("administracion_dashboard");
         $menu_opcion['text'] = 'Dashboard';
         $menu_opcion['icon'] = 'fa fa-area-chart';
@@ -46,8 +46,8 @@
         return $menu;
     }
 
-    function crear_menu_panel(){
-        $menu = configurar_menu_panel();
+    function crear_menu_panel($tarea_actual = ''){
+        $menu = configurar_menu_panel($tarea_actual);
         $html = '
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">Menu lateral</li>';
