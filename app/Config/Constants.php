@@ -99,5 +99,25 @@ define('TOASTR_INFO', 0);
 
 //ADMINISTRABLES: TAREA
 define('TAREA_DASHBOARD', "tarea_dashboard");
+define('TAREA_USUARIOS', "tarea_usuarios");
+define('TAREA_PERIODOS', "tarea_periodos");
+define('TAREA_DOCENTES', "tarea_docentes");
 
-//PUBLICA : PAGINAS
+// PUBLICA: PAGINA
+
+//------------------------------------//
+// PERMISOS ROLES //
+------------------------------------
+define("PERMISOS_ADMIN", array(
+ TAREA_DASHBOARD,
+ TAREA_USUARIOS
+ ));
+
+define("PERMISOS_OPERADOR", array(
+ TAREA_DASHBOARD
+ ));
+
+//---------------//
+//   ROLES      //
+define("ROL_ADMINISTRADOR", array("clave" => 745, => "rol" => "Administrador"))
+ define("ROL_OPERADOR", array("clave" => 125, => "rol" => "Operador"))
